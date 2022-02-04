@@ -1,6 +1,7 @@
 package com.rafaelrosso.cadastro.services;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,6 +27,7 @@ public class UsuarioService implements UserDetailsService{
 		return usuarioRepository.findByEmail(login).orElseThrow(() -> new EntityNotFoundException("Usuario não cadastrado.") );
 	}
 
+	@Transactional
 	public Usuario save(Usuario usuario) {
 		return usuarioRepository.save(usuario);
 	}

@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "betha"
+      MYSQL_DATABASE: "betha_pessoas"
+    ports:
+      - "3307:3306"
